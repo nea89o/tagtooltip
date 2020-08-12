@@ -1,0 +1,5 @@
+{
+  "key.showtags": "Show Ore Dictionary / Item Tags",
+  "tooltip.showTags": "Press %s to show Oredictionary/Tag Tooltips",
+  "tooltip.tag.prefix": "Tag: %s"
+}

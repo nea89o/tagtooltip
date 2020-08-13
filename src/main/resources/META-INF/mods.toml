@@ -1,14 +1,14 @@
 modLoader="javafml"
 loaderVersion="[32,)"
 license="All rights reserved"
-issueTrackerURL="http://github.com/romangraef/tagtooltip"
+issueTrackerURL="http://github.com/romangraef/tagtooltip/issues"
 [[mods]]
 modId="tagtooltip"
 version="${file.jarVersion}"
 displayName="Tag Tooltips"
-updateJSONURL="http://myurl.me/"
-displayURL="http://example.com/"
-logoFile="examplemod.png"
+updateJSONURL="http://myurl.me/" # todo update url
+displayURL="http://github.com/romangraef/tagtooltip"
+logoFile="tagtooltip.png"
 credits=""
 authors="Roman Gräf <hello@romangraef.com>"
 description='''

@@ -4,12 +4,10 @@ import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.util.InputMappings;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.KeybindTextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.settings.KeyConflictContext;
-import net.minecraftforge.client.settings.KeyModifier;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
@@ -36,14 +34,11 @@ import static com.romangraef.tagtooltip.TagTooltip.MODID;
 public class TagTooltip {
     public static final String MODID = "tagtooltip";
     public static final Logger log = LogManager.getLogger(MODID);
-    public KeyBinding showTagsBinding = new KeyBinding("key.showtags", KeyConflictContext.GUI, InputMappings.Type.KEYSYM, GLFW.GLFW_KEY_M, "key.categories.inventory");
+    public KeyBinding showTagsBinding = new KeyBinding("key.showtags", KeyConflictContext.UNIVERSAL, InputMappings.Type.KEYSYM, GLFW.GLFW_KEY_M, "key.categories.inventory");
 
     public TagTooltip() {
         if (FMLEnvironment.dist == Dist.DEDICATED_SERVER) {
-            log.warn("#########################################");
-            log.warn("#      ReAuth was loaded on Server      #");
-            log.warn("# Consider removing it to save some RAM #");
-            log.warn("#########################################");
+            log.warn("Tag Tooltips is a client side only mod.");
         } else {
             IEventBus eventBus = MinecraftForge.EVENT_BUS;
             eventBus.addListener(EventPriority.NORMAL, false, ItemTooltipEvent.class, this::onTooltip);
@@ -55,7 +50,7 @@ public class TagTooltip {
         if (event == null) return;
         List<ITextComponent> toolTip = event.getToolTip();
         if (!showTagsBinding.isKeyDown()) {
-            toolTip.add(new TranslationTextComponent("tooltip.showTags", new TranslationTextComponent(showTagsBinding.getTranslationKey())));
+            toolTip.add(new TranslationTextComponent("tooltip.showTags", showTagsBinding.func_238171_j_()));
             return;
         }
         for (ResourceLocation tag : event.getItemStack().getItem().getTags()) {

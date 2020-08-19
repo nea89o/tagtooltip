@@ -17,6 +17,6 @@ Adds tooltips to items to show the tags that they have.
 [[dependencies.tagtooltip]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.1]"
+    versionRange="[1.16,1.17)"
     ordering="NONE"
     side="CLIENT"
